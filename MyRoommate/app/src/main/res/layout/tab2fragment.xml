@@ -1,0 +1,251 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/rr"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#ffffff">
+
+    <RelativeLayout
+        android:id="@+id/AB"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/material_pink_500">
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="5dp"
+            android:src="@drawable/back"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+
+        <com.romainpiel.shimmer.ShimmerTextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Add Expenses"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:reflectionColor="@color/colorPrimaryLight"/>
+
+        <ImageView
+            android:id="@+id/add_ex"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:src="@drawable/right"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/date_tv"
+        android:layout_below="@+id/AB"
+        android:orientation="vertical">
+
+        <com.soumya.sethy.myroommate.adapters.ContactsCompletionView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:nextFocusDown="@+id/item"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true"
+            />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+
+            <com.rengwuxian.materialedittext.MaterialAutoCompleteTextView
+                android:id="@+id/multiAutoCompleteTextName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="13"
+                android:hint="Search Name "
+                android:inputType="textPersonName"
+                app:baseColor="#0056d3"
+                app:errorColor="#ddaa00"
+                app:floatingLabel="highlight"
+                app:floatingLabelText="Please Enter Name"
+                app:minCharacters="1"
+                app:primaryColor="#982360"
+                >
+
+            </com.rengwuxian.materialedittext.MaterialAutoCompleteTextView>
+
+            <ImageButton
+                android:id="@+id/searchAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_input_add"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                android:layout_gravity="clip_horizontal"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/cheese1"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Item Name "
+                    android:inputType="textAutoComplete"
+                    android:minWidth="150dp"
+                    android:nextFocusDown="@+id/amount"
+                    app:baseColor="#0056d3"
+                    app:errorColor="#ddaa00"
+                    app:floatingLabel="highlight"
+                    app:floatingLabelText="Item Description"
+                    app:minCharacters="1"
+                    app:primaryColor="#982360"/>
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/amount"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Amount "
+                    android:inputType="numberDecimal"
+                    android:minWidth="150dp"
+                    android:nextFocusDown="@+id/paid_btn"
+                    app:baseColor="#0056d3"
+                    app:errorColor="#ddaa00"
+                    app:floatingLabel="highlight"
+                    app:floatingLabelText="Please Enter Amount"
+                    app:minCharacters="1"
+                    app:primaryColor="#982360"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/item_typ"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:hint="Item Type "
+            android:visibility="gone"
+            app:baseColor="#0056d3"
+            app:errorColor="#ddaa00"
+            app:floatingLabel="highlight"
+            app:floatingLabelText="Item Description"
+            app:minCharacters="1"
+            app:primaryColor="#982360"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/paid_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:background="@color/colorPrimary"
+                android:drawableLeft="@drawable/money"
+                android:drawableRight="@drawable/arrow"
+                android:gravity="center"
+                android:paddingBottom="5dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="5dp"
+                android:text="Paid by"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/equal_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="equally"
+                android:visibility="gone"/>
+            <com.soumya.sethy.myroommate.models.FlowLayout
+                android:id="@+id/flow_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|top"
+                android:minHeight="50dp"
+                android:visibility="visible">
+            </com.soumya.sethy.myroommate.models.FlowLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/date_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:text="Date?"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"/>
+
+    <TextView
+        android:id="@+id/Next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5dp"
+        android:gravity="center_horizontal"
+        android:text="Next"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"/>
+
+
+</RelativeLayout>

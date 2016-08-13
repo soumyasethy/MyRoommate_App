@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#ffffff"
+              android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/AB"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/material_pink_500">
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="5dp"
+            android:src="@drawable/back"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+
+        <com.romainpiel.shimmer.ShimmerTextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Add New Roommate"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:reflectionColor="@color/colorPrimaryLight"/>
+
+        <ImageView
+            android:id="@+id/add_roomate"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:src="@drawable/right"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mm"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:hint="Enter Roommate  Name "
+        app:baseColor="#0056d3"
+        app:errorColor="#ddaa00"
+        app:floatingLabel="highlight"
+        app:floatingLabelText="Please New Roommate Name"
+        app:minCharacters="1"
+        app:primaryColor="#982360"
+        />
+
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/phn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:hint="Phone Number "
+        app:baseColor="#0056d3"
+        app:errorColor="#ddaa00"
+        app:floatingLabel="highlight"
+        app:floatingLabelText="Please Enter Phone Number"
+        app:minCharacters="1"
+        app:primaryColor="#982360"
+        android:layout_below="@+id/name"
+        />
+
+</RelativeLayout>
+
+</LinearLayout>

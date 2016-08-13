@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="E:/Eclipse-ADT_Lollypop/ADT/sdk/platform-tools/MyRoomMate.db"/><window><current_tab id="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="788"/><expanded_item id="0" parent="-1"/><expanded_item id="1" parent="-1"/><expanded_item id="2" parent="-1"/><expanded_item id="3" parent="-1"/></tab_structure><tab_browse><current_table name="amount_table"/><default_encoding codec=""/><browsetable_info data="AAAABQAAABQAdQBzAGUAcgBfAHQAYQBiAGwAZScfsHAAAAHoAAAAAAAAAAAAAAAAAP////8AAAAeAHMAcQBsAGkAdABlAF8AcwBlAHEAdQBlAG4AYwBlJx4lYAAAAegAAAAAAAAAAAAAAAAA/////wAAABgAZABlAHQAYQBpAGwAXwB0AGEAYgBsAGUAAAAEAAAAAQAAAAEAAAAEAAAAuQAAAAAAAAAAAP////8AAAAgAGEAbgBkAHIAbwBpAGQAXwBtAGUAdABhAGQAYQB0AGEnH8CwAAAB6AAAAAAAAAAAAAAAAAD/////AAAAGABhAG0AbwB1AG4AdABfAHQAYQBiAGwAZQAAAAEAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAAIAAAAAAAAAAQAAAAAAAAAAAP////8="/></tab_browse><tab_sql><sql name="SQL 1">SELECT NAME AS _id, IFNULL(SUM(AMOUNT),0) AS TOTAL,
+IFNULL (SUM(CASE  WHEN AMOUNT&gt;0  THEN AMOUNT END) ,0) AS NEED_TO_GET,
+IFNULL(SUM(CASE  WHEN AMOUNT&lt;0  THEN AMOUNT END),0) AS NEED_TO_PAY 
+FROM(
+SELECT _ID,NAME,AMOUNT - ( SELECT SUM(AMOUNT) FROM AMOUNT_TABLE GROUP BY _ID ) /(SELECT COUNT(*) 
+FROM AMOUNT_TABLE  GROUP  BY _ID)  AS AMOUNT FROM AMOUNT_TABLE WHERE --_ID = 2 AND 
+
+) GROUP BY  NAME
+</sql><sql name="SQL 2">SELECT A._ID,B.ITEM,A.NAME,A.AMOUNT - ( SELECT SUM(AMOUNT) FROM AMOUNT_TABLE GROUP BY _ID ) /(SELECT COUNT(*) 
+FROM AMOUNT_TABLE  WHERE SPILT ='Y' GROUP  BY _ID)  AS AMOUNT FROM AMOUNT_TABLE A 
+INNER JOIN detail_table B on A._ID = B._ID
+WHERE A.SPILT ='Y'</sql><sql name="SQL 3">SELECT _ID,NAME,
+
+CASE  WHEN (AMOUNT&gt;0  AND SPILT ='N' ) THEN AMOUNT
+--CASE WHEN (AMOUNT&gt;= 0  AND SPILT ='Y' )  THEN AMOUNT - SUM (AMOUNT)/COUNT(*) WHERE _ID 
+ELSE 
+AMOUNT - ( SELECT SUM(AMOUNT) FROM AMOUNT_TABLE WHERE _ID =2 
+GROUP BY _ID 
+) /(SELECT COUNT(*) 
+FROM AMOUNT_TABLE WHERE _ID =2 AND 
+SPILT ='Y' GROUP  BY _ID
+) 
+ END   AS AMOUNT
+
+ FROM AMOUNT_TABLE WHERE _ID = 2</sql><sql name="SQL 5">SELECT A._ID,B.ITEM,A.NAME,A.AMOUNT,A.SPILT,B.SRC_TRANSACTION_DT FROM AMOUNT_TABLE A 
+INNER JOIN detail_table B on A._ID = B._ID
+</sql><current_tab id="3"/></tab_sql></sqlb_project>
